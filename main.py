@@ -34,9 +34,13 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+origins = [
+    "http://localhost:8080",
+    "*",  # (tạm thời test tất cả)
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://face-management-service-dev.up.railway.app"],  # ["https://face-management-service-dev.up.railway.app"]
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],  # GET, POST, PUT, DELETE...
     allow_headers=["*"],  # Cho phép tất cả header
