@@ -36,7 +36,7 @@ app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ["https://face-management-service-dev.up.railway.app"]
+    allow_origins=["https://face-management-service-dev.up.railway.app"],  # ["https://face-management-service-dev.up.railway.app"]
     allow_credentials=True,
     allow_methods=["*"],  # GET, POST, PUT, DELETE...
     allow_headers=["*"],  # Cho phép tất cả header
