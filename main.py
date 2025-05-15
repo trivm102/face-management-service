@@ -36,6 +36,7 @@ app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost:8080",
+    "https://face-management-aa81f.web.app",
 ]
 app.add_middleware(
     CORSMiddleware,
