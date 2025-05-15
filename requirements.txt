@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+dlib
+face_recognition
+faiss-cpu
+numpy
+python-multipart
+boto3

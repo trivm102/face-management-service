@@ -1,0 +1,11 @@
+services:
+  search-face:
+    build: .
+    container_name: search-face-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.dev
+    volumes:
+      - .:/app
+    restart: unless-stopped
