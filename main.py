@@ -36,7 +36,6 @@ app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost:8080",
-    "*",  # (tạm thời test tất cả)
 ]
 app.add_middleware(
     CORSMiddleware,
