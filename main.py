@@ -9,6 +9,7 @@ from request_model.file_request import FileRequest
 from request_model.keys_request import KeysRequest
 from environment import ENV, API_KEY
 import manage_files_s3 as s3
+from fastapi.middleware.cors import CORSMiddleware
 
 
 if not API_KEY:
@@ -32,6 +33,14 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # ["https://face-management-service-dev.up.railway.app"]
+    allow_credentials=True,
+    allow_methods=["*"],  # GET, POST, PUT, DELETE...
+    allow_headers=["*"],  # Cho phép tất cả header
+)
 
 
 def verify_api_key(access_token: str = Header(...)):
